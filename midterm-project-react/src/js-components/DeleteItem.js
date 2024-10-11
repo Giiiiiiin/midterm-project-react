@@ -1,10 +1,9 @@
+import '../css-components/main.css'
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import Dashboard from './Dashboard';
 import Button from 'react-bootstrap/Button';
 
 function DeleteItem({ itemList, setItemList }) {
-  
-  const navigate = useNavigate();
 
   const [notification, setNotification] = useState("");
   const [deleteID, setUpdateID] = useState("");
@@ -41,18 +40,12 @@ function DeleteItem({ itemList, setItemList }) {
 
   return (
     <div>
-      <Button variant='primary' onClick={() => navigate('/add')}>Add Item</Button>
-      <Button variant='primary' onClick={() => navigate('/update')}>Update Item</Button>
-      <Button variant='primary' onClick={() => navigate('/delete')}>Remove Item</Button>
-      <Button variant='primary' onClick={() => navigate('/category')}>Display by Category</Button>
-      <Button variant='primary' onClick={() => navigate('/all')}>Display All</Button>
-      <Button variant='primary' onClick={() => navigate('/sort')}>Sort Items</Button>
-      <Button variant='primary' onClick={() => navigate('/low-stock')}>Display Low Stock Items</Button>
-      <Button variant='primary' onClick={() => navigate('/search')}>Search Item</Button>
-      <h2>Delete Item</h2>
+      <Dashboard />
+      <h2 className='mb-5'>Delete Item</h2>
 
       <div>
         <input
+          className='mb-3'
           type="text"
           name="id"
           placeholder="Item ID"
@@ -60,7 +53,7 @@ function DeleteItem({ itemList, setItemList }) {
           onChange={handleDeleteID}
         />
         <br />
-        <button onClick={deleteItem}>Delete Item</button>
+        <Button variant='danger' onClick={deleteItem}>Delete Item</Button>
         <br />
 
         {notification && <p style={{ color: "green" }}>{notification}</p>}

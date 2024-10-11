@@ -1,10 +1,9 @@
+import '../css-components/main.css'
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import Dashboard from './Dashboard';
 import Button from 'react-bootstrap/Button';
 
 function AddItem({ itemList, setItemList, newItem, setNewItem }) {
-  
-  const navigate = useNavigate();
 
   const [notification, setNotification] = useState("");
 
@@ -67,19 +66,13 @@ function AddItem({ itemList, setItemList, newItem, setNewItem }) {
 
   return (
     <div>
-      <Button variant='primary' onClick={() => navigate('/add')}>Add Item</Button>
-      <Button variant='primary' onClick={() => navigate('/update')}>Update Item</Button>
-      <Button variant='primary' onClick={() => navigate('/delete')}>Remove Item</Button>
-      <Button variant='primary' onClick={() => navigate('/category')}>Display by Category</Button>
-      <Button variant='primary' onClick={() => navigate('/all')}>Display All</Button>
-      <Button variant='primary' onClick={() => navigate('/sort')}>Sort Items</Button>
-      <Button variant='primary' onClick={() => navigate('/low-stock')}>Display Low Stock Items</Button>
-      <Button variant='primary' onClick={() => navigate('/search')}>Search Item</Button>
-      <h2>Item Manager</h2>
+      <Dashboard />
+      <h2 className='mb-5'>Add Item</h2>
 
       {/* Input form for item details */}
       <div>
         <input
+          className='mb-3'
           type="text"
           name="id"
           placeholder="Item ID"
@@ -88,6 +81,7 @@ function AddItem({ itemList, setItemList, newItem, setNewItem }) {
         />
         <br />
         <input
+          className='mb-3'
           type="text"
           name="name"
           placeholder="Item Name"
@@ -96,6 +90,7 @@ function AddItem({ itemList, setItemList, newItem, setNewItem }) {
         />
         <br />
         <input
+          className='mb-3'
           type="number"
           name="quantity"
           placeholder="Quantity"
@@ -104,6 +99,7 @@ function AddItem({ itemList, setItemList, newItem, setNewItem }) {
         />
         <br />
         <input
+          className='mb-3'
           type="number"
           name="price"
           placeholder="Price"
@@ -112,6 +108,7 @@ function AddItem({ itemList, setItemList, newItem, setNewItem }) {
         />
         <br />
         <select
+          className='mb-3'
           name="category"
           value={newItem.category}
           onChange={handleInputChange}
@@ -122,7 +119,7 @@ function AddItem({ itemList, setItemList, newItem, setNewItem }) {
           <option value="Entertainment">Entertainment</option>
         </select>
         <br />
-        <button onClick={addItem}>Add Item</button>
+        <Button variant='success' onClick={addItem}>Add Item</Button>
         <br />
 
         {/* Display notification message */}

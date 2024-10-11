@@ -1,10 +1,10 @@
+import '../css-components/main.css'
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import Dashboard from './Dashboard';
 import Button from 'react-bootstrap/Button';
 
 function UpdateItem({ itemList, setItemList }) {
   
-  const navigate = useNavigate();
 
   const [notification, setNotification] = useState("");
   const [updateID, setUpdateID] = useState("");
@@ -75,18 +75,13 @@ function UpdateItem({ itemList, setItemList }) {
 
   return (
     <div>
-      <Button variant='primary' onClick={() => navigate('/add')}>Add Item</Button>
-      <Button variant='primary' onClick={() => navigate('/update')}>Update Item</Button>
-      <Button variant='primary' onClick={() => navigate('/delete')}>Remove Item</Button>
-      <Button variant='primary' onClick={() => navigate('/category')}>Display by Category</Button>
-      <Button variant='primary' onClick={() => navigate('/all')}>Display All</Button>
-      <Button variant='primary' onClick={() => navigate('/sort')}>Sort Items</Button>
-      <Button variant='primary' onClick={() => navigate('/low-stock')}>Display Low Stock Items</Button>
-      <Button variant='primary' onClick={() => navigate('/search')}>Search Item</Button>
-      <h2>Update Item</h2>
+      <Dashboard />
+
+      <h2 className='mb-5'>Update Item</h2>
 
       <div>
         <input
+          className='mb-3'
           type="text"
           name="id"
           placeholder="Item ID"
@@ -95,6 +90,7 @@ function UpdateItem({ itemList, setItemList }) {
         />
         <br />
         <select
+          className='mb-3'
           name="target"
           value={updateTarget}
           onChange={handleUpdateTarget}
@@ -105,6 +101,7 @@ function UpdateItem({ itemList, setItemList }) {
         </select>
         <br />
         <input
+          className='mb-3'
           type="number"
           name="updateValue"
           placeholder="New Value"
@@ -112,7 +109,7 @@ function UpdateItem({ itemList, setItemList }) {
           onChange={handleUpdateValue}
         />
         <br />
-        <button onClick={updateItem}>Update Item</button>
+        <Button variant='success' onClick={updateItem}>Update Item</Button>
         <br />
 
         {notification && <p style={{ color: "green" }}>{notification}</p>}

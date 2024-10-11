@@ -1,10 +1,8 @@
+import '../css-components/main.css'
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Button from 'react-bootstrap/Button';
+import Dashboard from './Dashboard';
 
 function SearchItem({ itemList }) {
-
-  const navigate = useNavigate();
 
   const [searchID, setSearchID] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -25,19 +23,13 @@ function SearchItem({ itemList }) {
 
   return (
     <div>
-      <Button variant='primary' onClick={() => navigate('/add')}>Add Item</Button>
-      <Button variant='primary' onClick={() => navigate('/update')}>Update Item</Button>
-      <Button variant='primary' onClick={() => navigate('/delete')}>Remove Item</Button>
-      <Button variant='primary' onClick={() => navigate('/category')}>Display by Category</Button>
-      <Button variant='primary' onClick={() => navigate('/all')}>Display All</Button>
-      <Button variant='primary' onClick={() => navigate('/sort')}>Sort Items</Button>
-      <Button variant='primary' onClick={() => navigate('/low-stock')}>Display Low Stock Items</Button>
-      <Button variant='primary' onClick={() => navigate('/search')}>Search Item</Button>
+      <Dashboard />
 
-      <h2>Search Item</h2>
+      <h2 className='mb-5'>Search Item</h2>
 
       <div>
         <input
+          className='mb-5'
           type="text"
           name="id"
           placeholder="Search Item ID"
@@ -47,7 +39,7 @@ function SearchItem({ itemList }) {
 
         {searchResults.length > 0 || searchID === "" ? (
           itemList.length > 0 ? (
-          <table border="1" cellPadding="5">
+          <table border="1" cellPadding="5" align='center' className='mb-5'>
             <thead>
               <tr>
                 <th>ID</th>

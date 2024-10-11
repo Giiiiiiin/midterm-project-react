@@ -1,10 +1,8 @@
+import '../css-components/main.css'
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import Button from 'react-bootstrap/Button';
+import Dashboard from './Dashboard';
 
 function DisplayLow({ itemList }) {
-  
-  const navigate = useNavigate();
 
   // Filter item list if quanlity is 5 or lower
   const filteredAndSortedList = itemList
@@ -12,17 +10,10 @@ function DisplayLow({ itemList }) {
 
   return (
     <div>
-      <Button variant='primary' onClick={() => navigate('/add')}>Add Item</Button>
-      <Button variant='primary' onClick={() => navigate('/update')}>Update Item</Button>
-      <Button variant='primary' onClick={() => navigate('/delete')}>Remove Item</Button>
-      <Button variant='primary' onClick={() => navigate('/category')}>Display by Category</Button>
-      <Button variant='primary' onClick={() => navigate('/all')}>Display All</Button>
-      <Button variant='primary' onClick={() => navigate('/sort')}>Sort Items</Button>
-      <Button variant='primary' onClick={() => navigate('/low-stock')}>Display Low Stock Items</Button>
-      <Button variant='primary' onClick={() => navigate('/search')}>Search Item</Button>
-      <h3>Item List</h3>
+      <Dashboard />
+      <h3 className='mb-5'>Display Low Stock</h3>
       {filteredAndSortedList.length > 0 ? (
-        <table border="1" cellPadding="5">
+        <table border="1" cellPadding="5" align='center' className='mb-5'>
           <thead>
             <tr>
               <th>ID</th>
