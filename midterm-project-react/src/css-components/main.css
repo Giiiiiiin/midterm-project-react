@@ -1,0 +1,42 @@
+
+h1 {
+  font-size: 2rem;
+}
+
+p {
+  font-size: 1.3rem;
+}
+
+input {
+  font-size: 0.9rem;
+  padding: 5px;
+  border-radius: 1rem;
+  width: 15rem;
+}
+
+select {
+  font-size: 0.9rem;
+  padding: 5px;
+  border-radius: 1rem;
+  width: 15rem;
+}
+
+table {
+  border-collapse: collapse;
+  border-left: 0;
+  border-right: 0;
+}
+
+table thead {
+  background-color: #bbb;
+}
+
+table th,
+table td {
+  padding: 1rem;
+  min-width: 15rem;
+}
+
+table tr {
+  border-bottom: 1px solid #bbb;
+}
