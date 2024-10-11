@@ -1,4 +1,4 @@
-import '../css-components/main.css'
+import '../css-components/main.css';
 import React, { useState } from 'react';
 import Dashboard from './Dashboard';
 

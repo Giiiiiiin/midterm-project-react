@@ -1,5 +1,5 @@
 import './css-components/App.css';
-import './css-components/main.css'
+import './css-components/main.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -24,7 +24,6 @@ function App() {
   });
 
   return (
-    <body>
     <div className='App'>
       <div className='mt-5 mb-5'>
         <b><h1>INVENTORY MANAGEMENT SYSTEM</h1></b>
@@ -45,7 +44,6 @@ function App() {
         </Routes>
       </Router>
     </div>
-    </body>
   );
 }
 

@@ -1,9 +1,7 @@
-body {
-  background-color: linear-gradient( to bottom, transparent 60%, #662D8C 100%), linear-gradient(to top, transparent 60%, #ED1E79 100%);
-}
 
 .App {
   text-align: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .App-header {
