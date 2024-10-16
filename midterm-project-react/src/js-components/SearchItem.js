@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import Dashboard from './Dashboard';
 
 function SearchItem({ itemList }) {
-
   const [searchID, setSearchID] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
@@ -11,9 +10,11 @@ function SearchItem({ itemList }) {
     const id = event.target.value;
     setSearchID(id);
 
-    // Filter items by the search ID
+    // Filter items by matching phrases in the ID or name
     if (id.trim() !== "") {
-      const match = itemList.filter((item) => item.id === id);
+      const match = itemList.filter((item) =>
+        item.id.toLowerCase().includes(id.toLowerCase())
+      );
       setSearchResults(match);
     } else {
       // Reset search results if the search input is cleared
@@ -24,7 +25,6 @@ function SearchItem({ itemList }) {
   return (
     <div>
       <Dashboard />
-
       <h2 className='mb-5'>Search Item</h2>
 
       <div>
@@ -64,9 +64,7 @@ function SearchItem({ itemList }) {
             </tbody>
           </table>
           ) : (
-            <p>
-              No items added yet.
-            </p>
+            <p>No items added yet.</p>
           )
         ) : (
           <p>Item not found! No items found for ID: {searchID}</p>
